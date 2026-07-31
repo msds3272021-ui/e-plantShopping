@@ -17,12 +17,10 @@ export const CartSlice = createSlice({
         // If item does not exist, add it to the cart with quantity 1
         state.items.push({ name, image, cost, quantity: 1 });
         }
- 
     },
     removeItem: (state, action) => {
-
-
-      
+        const { name} = action.payload; // Find name from the action payload
+        state.items = state.items.filter(item => item.name === name);
     },
     updateQuantity: (state, action) => {
       const { name, quantity } = action.payload; // Destructure the product name and new quantity from the action payload
