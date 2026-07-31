@@ -10,33 +10,11 @@ const CartItem = ({ onContinueShopping }) => {
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
        let totalAmount = 0;
-        if (section === "Air Purifying Plants") {
             cart.forEach((item) => {
                 const cost =  parseFloat(item.cost.substring(1));
                 totalAmount += cost * item.quantity;
             });
-        } else if (section === "Aromatic Fragrant Plants") {
-            cart.forEach((item) => {
-                const cost =  parseFloat(item.cost.substring(1));
-                totalAmount += cost * item.quantity;
-            });
-        } else if (section === "Insect Repellant Plants") {
-            cart.forEach((item) => {
-                const cost =  parseFloat(item.cost.substring(1));
-                totalAmount += cost * item.quantity;
-            });
-       } else if (section === "Medicinal Plants") {
-            cart.forEach((item) => {
-                const cost =  parseFloat(item.cost.substring(1));
-                totalAmount += cost * item.quantity;
-            });
-        } else if (section === "Low Maintenance Plants") {
-            cart.forEach((item) => {
-                const cost =  parseFloat(item.cost.substring(1));
-                totalAmount += cost * item.quantity;
-            });
-         
-        }
+              }
     return totalAmount;
   };
 
@@ -65,22 +43,10 @@ const CartItem = ({ onContinueShopping }) => {
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
       let totalCost = 0;
-        if (section === "venue") {
-            cart.forEach((item) => {
-                totalCost += item.cost * item.quantity;
-            });
-        } else if (section === "av") {
-            cart.forEach((item) => {
-                totalCost += item.cost * item.quantity;
-            });
-        } else if (section === "meals") {
-            cart.forEach((item) => {
-                if (item.selected) {
-                  totalCost += item.cost * numberOfPeople;
-                }
-              });
-          parseFloat(item.cost.substring(1)), 
-        }
+           cart.forEach((item) => {
+                const cost =  parseFloat(item.cost.substring(1));
+                totalCost += cost * item.quantity;
+           }
     return totalCost;
   };
 
