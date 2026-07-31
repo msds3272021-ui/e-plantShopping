@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
+import { useDispatch} from "react-redux";
 import CartItem from './CartItem';
 import addItem from './CartSlice';
 import removeItem from './CartSlice';
@@ -264,6 +265,13 @@ function ProductList({ onHomeClick }) {
         [product.name]: true, // Set the current product's name as a key with value 'true' to mark it as added
       }));
     };
+
+    const calculateTotalQuantity = () => {
+    return cartItems
+      ? cartItems.reduce((total, item) => total + item.quantity, 0)
+      : 0;
+  };
+
 
     return (
         <div>
