@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
 import addItem from './CartSlice';
-Import removeItem from './CartSlice';
+import removeItem from './CartSlice';
 import updateQuantity from './CartSlice';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
