@@ -3,8 +3,11 @@ import cartReducer from './CartSlice';
 import addItem from './CartSlice';
 import removeItem from './CartSlice';
 import updateQuantity from './CartSlice';
+// Create a Redux store using configureStore from Redux Toolkit
  const store = configureStore({
+      // Define the root reducer object
     reducer: {
+       // 'cart' is the name of the slice in the store, and it's managed by cartReducer
         cart: cartReducer,
     },
 });
