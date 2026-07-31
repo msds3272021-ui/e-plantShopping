@@ -9,34 +9,40 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
-       let totalCost = 0;
-        if (section === "venue") {
+       let totalAmount = 0;
+        if (section === "Air Purifying Plants") {
             cart.forEach((item) => {
-                totalCost += item.cost * item.quantity;
+                const cost =  parseFloat(item.cost.substring(1));
+                totalAmount += cost * item.quantity;
             });
-        } else if (section === "av") {
+        } else if (section === "Aromatic Fragrant Plants") {
             cart.forEach((item) => {
-                totalCost += item.cost * item.quantity;
+                const cost =  parseFloat(item.cost.substring(1));
+                totalAmount += cost * item.quantity;
             });
-        } else if (section === "meals") {
+        } else if (section === "Insect Repellant Plants") {
             cart.forEach((item) => {
-                if (item.selected) {
-                  totalCost += item.cost * numberOfPeople;
-                }
-              });
-          parseFloat(item.cost.substring(1)), 
+                const cost =  parseFloat(item.cost.substring(1));
+                totalAmount += cost * item.quantity;
+            });
+       } else if (section === "Medicinal Plants") {
+            cart.forEach((item) => {
+                const cost =  parseFloat(item.cost.substring(1));
+                totalAmount += cost * item.quantity;
+            });
+        } else if (section === "Low Maintenance Plants") {
+            cart.forEach((item) => {
+                const cost =  parseFloat(item.cost.substring(1));
+                totalAmount += cost * item.quantity;
+            });
+         
         }
-    return totalCost;
-
-    
- 
+    return totalAmount;
   };
 
   const handleContinueShopping = (e) => {
    onContinueShopping(e) 
   };
-
-
 
   const handleIncrement = (item) => {
      const item = state[action.payload];
