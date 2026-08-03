@@ -14,7 +14,6 @@ const CartItem = ({ onContinueShopping }) => {
                 const cost =  parseFloat(item.cost.substring(1));
                 totalAmount += cost * item.quantity;
             });
-              }
     return totalAmount;
   };
 
@@ -23,22 +22,20 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleIncrement = (item) => {
-    dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
-    }
+    dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }))
   };
-
+  
   const handleDecrement = (item) => {
-        if (item && item.quantity > 0) {
+        if (item.quantity > 1) {
             dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
-        else (item.quantity = 0)
-             dispatch(removeItem({ name: item.name}));
+        } else {
+            dispatch(removeItem({ name: item.name}));
         }
-  };
+    }; 
 
   const handleRemove = (item) => { 
     dispatch(removeItem({ name: item.name}));
-        }
-  };
+    };
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
@@ -46,7 +43,7 @@ const CartItem = ({ onContinueShopping }) => {
            cart.forEach((item) => {
                 const cost =  parseFloat(item.cost.substring(1));
                 totalCost += cost * item.quantity;
-           }
+           });
     return totalCost;
   };
 
